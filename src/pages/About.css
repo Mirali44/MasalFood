@@ -1,0 +1,40 @@
+.about-container {
+    color: white;
+    text-align: center;
+    padding: 10px 5rem;
+}
+
+.about-container p {
+    font-size: 1.5rem;
+    padding: 0 5rem;
+}
+
+.about-container-first {
+    display: flex;
+    flex-direction: row;
+    margin: 3rem 0;
+}
+
+.about-container-second {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 3rem 0;
+}
+
+.about-button {
+    background-color: rgb(216, 112, 0);
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.about-button:hover {
+    background-color: #1d1a16;
+    color: rgb(216, 112, 0);
+}

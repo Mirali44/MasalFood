@@ -1,0 +1,47 @@
+.home-container {
+    background-image: url("../images/foodimg.png");
+  background-size: 100% 45rem;
+  background-repeat: no-repeat;
+  height: 45rem;
+}
+
+.img-text {
+    z-index: 0;
+    margin: 0;
+    color: white;
+    font-size: 100px;
+    position: absolute;
+    top: 100px;
+    left: 4rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    z-index: 0;
+    margin: 0;
+    color: white;
+    position: absolute;
+    top: 340px;
+    left: 5rem;
+    font-weight: bold;
+}
+
+.home-button {
+    background-color: rgb(216, 112, 0);
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    position: absolute;
+    top: 380px;
+    left: 5rem;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.home-button:hover {
+    background-color: #1d1a16;
+    color: rgb(216, 112, 0);
+}
