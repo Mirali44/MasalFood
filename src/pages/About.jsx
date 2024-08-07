@@ -1,5 +1,9 @@
 import "./About.css";
 import {useNavigate} from 'react-router'
+import whoweare from '/src/images/whoweare.jpg'
+import oldresto from '/src/images/oldresto.jpg'
+import azerbaijan from '/src/images/azerbaijan.png'
+import europemap from '/src/images/europemap.jpg'
 
 function About() {
   const navigate = useNavigate()
@@ -16,7 +20,7 @@ function About() {
           <h1>Who are we</h1> <br /> MasalFood is one of the biggest restaurant
           chains that still exists in Azerbaijan.{" "}
         </p>
-        <img src="src\images\whoweare.jpg" width={586} height={360} />
+        <img src={whoweare} width={586} height={360} />
       </div>
       <div className="about-container-second">
         <p>
@@ -25,7 +29,7 @@ function About() {
           and today it serves the people of the Masallı as one of the best and
           oldest restaurants in the city.
         </p>
-        <img src="src\images\oldresto.jpg" width={586} height={360} />
+        <img src={oldresto} width={586} height={360} />
       </div>
       <div className="about-container-first">
         <p>
@@ -33,7 +37,7 @@ function About() {
           today has 18 filials across the country in the most populated cities
           like Masallı, Lankaran, Baku, Sumqayit, Ganja and Nakchivan.
         </p>
-        <img src="src\images\azerbaijan.png" width={586} height={360} />
+        <img src={azerbaijan} width={586} height={360} />
       </div>
       <div className="about-container-second">
         <p>
@@ -42,7 +46,7 @@ function About() {
           moment we are aiming to start the construction of our future and first
           global filial in Munich, Germany.
         </p>
-        <img src="src\images\europemap.jpg" width={586} height={360} />
+        <img src={europemap} width={586} height={360} />
       </div>
       <h3>For more information</h3>
       <button onClick={handleClick} className="about-button">Contact us</button>

@@ -1,6 +1,7 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ReadonlyRating from "./UI/ReadonlyRating.jsx";
 import { useNavigate } from "react-router";
+import foodj from '/src/images/Food.jpg'
 
 export default function ProductItem() {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ export default function ProductItem() {
   return (
     <li onClick={handleClick} className="product-item">
       <article>
-        <img src=".\src\images\Food.jpg" />
+        <img src={foodj} />
         <div>
           <h3>Burger</h3>
           <p className="product-item-price">

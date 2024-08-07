@@ -1,12 +1,13 @@
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import "./ProductDetails.css";
 import ReadonlyRating from "./UI/ReadonlyRating";
+import foodj from '/src/images/Food.jpg'
 
 function ProductDetails() {
   return (
     <div className="product-detail-container">
       <div className="product-detail-container-left">
-        <img src="..\src\images\Food.jpg" width={400} height={350} />
+        <img src={foodj} width={400} height={350} />
       </div>
       <div className="product-detail-container-right">
         <h1>Product Name</h1>
