@@ -4,7 +4,7 @@ export const queryClient = new QueryClient();
 
 export async function fetchMeals({ signal, searchTerm }) {
   console.log(searchTerm);
-  let url = "http://localhost:3000/events";
+  let url = "http://localhost:8080/api/products/get-all-products";
 
   const response = await fetch(url, { signal: signal });
 
@@ -15,7 +15,8 @@ export async function fetchMeals({ signal, searchTerm }) {
     throw error;
   }
 
-  const { meals } = await response.json();
+  const data = await response.json();
 
-  return meals;
+  console.log(data);
+  return data;
 }
