@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 
 // eslint-disable-next-line react/prop-types
-export default function ReadonlyRating({value}) {
+export default function ReadonlyRating({ value }) {
   return (
     <Box
       sx={{

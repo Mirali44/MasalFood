@@ -1,22 +1,37 @@
-import { QueryClient } from '@tanstack/react-query';
-
-export const queryClient = new QueryClient();
-
-export async function fetchMeals({ signal, searchTerm }) {
-  console.log(searchTerm);
-  let url = "http://localhost:8080/api/products/get-all-products";
-
-  const response = await fetch(url, { signal: signal });
+export const postUserInfo = async (user) => {
+  const response = await fetch("http://10.243.100.1:8080/api/contact-us/add", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  });
 
   if (!response.ok) {
-    const error = new Error("An error occurred while fetching the events");
-    error.code = response.status;
-    error.info = await response.json();
-    throw error;
+    throw new Error("Failed to post user information");
   }
 
   const data = await response.json();
+  return data;
+};
 
+export const postOrder = async (user) => {
+  const response = await fetch(
+    "http://10.243.100.1:8080/api/orders/add-order",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to post user information");
+  }
+
+  const data = await response.json();
   console.log(data);
   return data;
-}
+};

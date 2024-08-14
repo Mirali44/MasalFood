@@ -7,6 +7,24 @@
     font-size: 20px;
 }
 
+.title {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.title h2 {
+    margin-left: 0;
+}
+
+.title img {
+    width: 4rem;
+    height: 4rem;
+    object-fit: contain;
+    border-radius: 50%;
+
+}
+
 h2 {
     margin: 15px 0;
     font-weight: 300;
@@ -16,6 +34,7 @@ h2 {
 
 .links {
     padding-top: 0.5rem;
+    display: flex;
 }
 
 .forLin {
@@ -46,7 +65,8 @@ h2 {
     color: rgb(216, 112, 0);
 }
 
-.links a, .forLin a {
+.links a,
+.forLin a {
     position: relative;
     margin-left: 3rem;
     text-decoration: none;
@@ -69,7 +89,8 @@ h2 {
     transition: border-bottom 2s;
 }
 
-.links a::after, .forLin a::after {
+.links a::after,
+.forLin a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -82,7 +103,6 @@ h2 {
     transition: transform 0.3s ease-in-out;
 }
 
-/* On hover, the underline animates */
 .header a:hover::after,
 .links a:hover::after,
 .forlin a:hover::after {
@@ -92,5 +112,36 @@ h2 {
 
 .header a:hover,
 .links a.active {
-  color: rgb(216, 112, 0);
+    color: rgb(216, 112, 0);
+}
+
+@media screen and (max-width: 860px) {
+    .header {
+        flex-direction: column;
+    }
+
+    .links a {
+        margin: 0 2rem;
+    }
+
+    .forLin a {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links a {
+        margin-top: 20px;
+        width: fit-content;
+    }
+
+    h2 {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
 }

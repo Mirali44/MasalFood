@@ -1,20 +1,34 @@
 import "./MainNavigation.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-//import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../store/ui-slice";
+import logo from "../../../public/logo.jpg";
 
 function MainNavigation() {
-  const [active, setActive] = useState(false)
+  const [active, setActive] = useState(false);
+  const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const dispatch = useDispatch();
+
   function handleClick() {
-    setActive(!active)
+    setActive(!active);
+  }
+
+  function showCart() {
+    dispatch(uiActions.toggle());
   }
 
   return (
     <div className="header">
-      <h2>
-        Masal<span className="logo-text">Food</span>
-      </h2>
+      <div className="title">
+        <img src={logo} style={{ width: 30 }} />
+        <h2>
+          Masal<span className="logo-text">Food</span>
+        </h2>
+      </div>
+
       <div className="links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
@@ -25,14 +39,17 @@ function MainNavigation() {
         <NavLink
           to="/favorites"
           className={({ isActive }) => {
-            //isActive ? "active" : "";
-            isActive ? setActive(true) : setActive(false)
+            isActive ? setActive(true) : setActive(false);
           }}
         >
-          <FavoriteBorderIcon onClick={handleClick} className={active ? "active" : ""} />
+          <FavoriteBorderIcon
+            onClick={handleClick}
+            className={active ? "active" : ""}
+          />
         </NavLink>
-        {/* <a><MenuOutlinedIcon /></a> */}
-        <button className="cart-button">Cart (0)</button>
+        <button onClick={showCart} className="cart-button">
+          Cart ({totalQuantity})
+        </button>
       </div>
     </div>
   );

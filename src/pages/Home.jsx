@@ -1,13 +1,21 @@
 import { useNavigate } from "react-router";
 import FeaturedProducts from "../components/FeaturedProducts";
 import "./Home.css";
-//import Header from './Header'
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchFeaturedMeals } from "../store/meal-action";
 
 function Home() {
-  const navigate = useNavigate()
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchFeaturedMeals());
+  }, [dispatch]);
+
+  const navigate = useNavigate();
+
   function handleClick() {
-    navigate('/menu')
+    navigate("/menu");
   }
   return (
     <>
@@ -16,7 +24,9 @@ function Home() {
           Taste The <br /> Quality
         </p>
         <p className="subtitle">Discover the products!</p>
-        <button onClick={handleClick} className="home-button">See Products</button>
+        <button onClick={handleClick} className="home-button">
+          See Products
+        </button>
       </div>
       <FeaturedProducts />
     </>

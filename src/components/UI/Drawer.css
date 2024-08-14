@@ -1,0 +1,26 @@
+.drawer-container {
+    box-sizing: border-box;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(49, 31, 31);
+    padding: 20px 30px;
+    font-size: 18px;
+}
+
+.drawer-button {
+    background-color: rgb(216, 112, 0);
+    outline: none;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out;
+}
+
+.drawer-button:hover {
+    background-color: #1d1a16;
+    color: rgb(216, 112, 0);
+}

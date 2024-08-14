@@ -1,3 +1,7 @@
+.menu-container {
+    display: flex;
+}
+
 .meals-container {
     width: 90%;
     max-width: 70rem;
@@ -8,4 +12,19 @@
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     justify-items: center;
     gap: 1rem;
+}
+
+.loading-box {
+    margin: 0 auto;
+    color: white;
+}
+
+@media screen and (max-width: 730px) {
+    .menu-container {
+        flex-direction: column;
+    }
+
+    .meals-container {
+        justify-items: center;
+    }
 }

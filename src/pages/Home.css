@@ -1,8 +1,9 @@
 .home-container {
     background-image: url("../images/foodimg.png");
-  background-size: 100% 45rem;
-  background-repeat: no-repeat;
-  height: 45rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
 }
 
 .img-text {
@@ -44,4 +45,43 @@
 .home-button:hover {
     background-color: #1d1a16;
     color: rgb(216, 112, 0);
+}
+
+@media screen and (max-width: 850px) {
+    .home-container {
+        height: 30rem;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .img-text {
+        font-size: 50px;
+        top: 50px;
+    }
+
+    .subtitle {
+        top: 250px;
+    }
+
+    .home-button {
+        top: 280px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .img-text {
+        font-size: 50px;
+        top: 50px;
+        left: 30px;
+    }
+
+    .subtitle {
+        top: 250px;
+        left: 30px;
+    }
+
+    .home-button {
+        top: 280px;
+        left: 30px;
+    }
 }

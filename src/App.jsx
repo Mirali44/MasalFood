@@ -1,7 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./components/util/http";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
@@ -9,9 +8,9 @@ import Contact from "./pages/Contact";
 import RootLayout from "./Root";
 import ProductDetails from "./components/ProductDetails";
 import Error from "./components/Error";
-import Cart from "./components/Cart";
-import Checkout from "./components/Checkout";
 import FavoritesList from "./pages/FavoritesList";
+
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
@@ -30,14 +29,6 @@ const router = createBrowserRouter([
       {
         path: "menu/detail",
         element: <ProductDetails />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
-      },
-      {
-        path: "/checkout",
-        element: <Checkout />,
       },
       {
         path: "about",

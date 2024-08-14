@@ -53,3 +53,15 @@ footer {
     margin-top: 20px;
     padding-top: 10px;
 }
+
+@media screen and (max-width: 660px) {
+    .footer-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .footer-container {
+        padding: 10px;
+    }
+}

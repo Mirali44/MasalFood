@@ -1,11 +1,11 @@
-import './Input.css'
+import "./Input.css";
 
 // eslint-disable-next-line react/prop-types
 export default function Input({ label, id, ...props }) {
-    return (
-      <p className="control">
-        <label htmlFor={id}>{label}</label>
-        <input id={id} name={id} required {...props} />
-      </p>
-    );
-  }
+  return (
+    <p className="control" {...props}>
+      <label htmlFor={id}>{label}</label>
+      <input id={id} name={id} required {...props} />
+    </p>
+  );
+}

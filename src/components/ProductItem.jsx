@@ -1,33 +1,72 @@
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import ReadonlyRating from "./UI/ReadonlyRating.jsx";
-import { useNavigate } from "react-router";
-import foodj from '/src/images/Food.jpg'
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../store/cart-slice.js";
+import { uiActions } from "../store/ui-slice.js";
 
-export default function ProductItem() {
-  const navigate = useNavigate()
+// eslint-disable-next-line react/prop-types
+export default function ProductItem(meal) {
+  const { id, name, price, description, rating, image } = meal;
 
-  function handleClick() {
-    navigate(`/menu/detail`)
+  const favorites = useSelector((state) => state.ui.favorites);
+  const isFavorite = favorites[id];
+
+  const dispatch = useDispatch();
+
+  function addFavorite() {
+    dispatch(
+      uiActions.addFavorite({ id, name, price, description, rating, image })
+    );
+  }
+
+  function removeFavorite() {
+    dispatch(uiActions.removeFavorite(id));
+  }
+
+  const isAdded = useSelector((state) =>
+    state.cart.cartItems.some((item) => item.id === id)
+  );
+
+  function addToCart() {
+    if (!isAdded) {
+      dispatch(cartActions.addItem({ id, name, price }));
+    }
+    console.log(name);
   }
 
   return (
-    <li onClick={handleClick} className="product-item">
+    <li className="product-item">
       <article>
-        <img src={foodj} />
+        <Link to={"/menu/detail"} state={meal}>
+          <img src={`http://10.243.100.1:8080/${image}`} alt={name} />
+        </Link>
         <div>
-          <h3>Burger</h3>
-          <p className="product-item-price">
-            {/* {currencyFormatter.format(meal.price)} */}35$
-          </p>
-          <p className="product-item-description">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia
-            dicta suscipit minima excepturi fuga eveniet sequi aut consequatur
-            vel numquam!
-          </p>
-          <ReadonlyRating value={5} />
+          <h3>{name}</h3>
+          <p className="product-item-price">{price}$</p>
+          <p className="product-item-description">{description}</p>
+          <ReadonlyRating value={rating} />
           <div className="icon-cart-box">
-            <FavoriteBorderIcon />
-            <button className="product-item-button">Add to Cart</button>
+            {isFavorite ? (
+              <FavoriteIcon
+                style={{ cursor: "pointer" }}
+                onClick={removeFavorite}
+              />
+            ) : (
+              <FavoriteBorderIcon
+                style={{ cursor: "pointer" }}
+                onClick={addFavorite}
+              />
+            )}
+
+            <button
+              className="product-item-button"
+              onClick={addToCart}
+              disabled={isAdded}
+            >
+              {isAdded ? "Added to Cart" : "Add to Cart"}
+            </button>
           </div>
         </div>
       </article>
